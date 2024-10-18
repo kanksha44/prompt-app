@@ -11,7 +11,7 @@ function App() {
   const baseUrl = import.meta.env.VITE_API_URL;
   const handlePromptRequest = async () => {
     try {
-      const response = await axios.post(`${baseUrl}/api/generate`, {
+      const response = await axios.post(`${baseUrl}api/generate`, {
         prompt,
       });
       setShowPrompt(response.data.message);
@@ -22,7 +22,7 @@ function App() {
 
   const handleSendEmail = async () => {
     try {
-      await axios.post(`${baseUrl}/api/send-email`, {
+      await axios.post(`${baseUrl}api/send-email`, {
         email,
         prompt: showPrompt,
       });
