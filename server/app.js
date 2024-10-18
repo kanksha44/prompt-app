@@ -11,6 +11,12 @@ const app = express();
 
 app.use(express.json());
 app.use(cors());
+// CORS configuration
+const corsOptions = {
+  origin: "https://prompt-ui.onrender.com", // Allow this origin
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Specify allowed methods
+  allowedHeaders: ["Content-Type", "Authorization"], // Specify allowed headers
+};
 
 // Use the email routes
 app.use("/api", emailRoutes);
