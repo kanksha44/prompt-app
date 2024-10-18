@@ -8,10 +8,10 @@ function App() {
   const [email, setEmail] = useState("");
   const [prompt, setPrompt] = useState("");
   const [showPrompt, setShowPrompt] = useState("");
-
+  const baseUrl = import.meta.env.VITE_API_URL;
   const handlePromptRequest = async () => {
     try {
-      const response = await axios.post("http://localhost:8000/api/generate", {
+      const response = await axios.post(`${baseUrl}/api/generate`, {
         prompt,
       });
       setShowPrompt(response.data.message);
@@ -22,7 +22,7 @@ function App() {
 
   const handleSendEmail = async () => {
     try {
-      await axios.post("http://localhost:8000/api/send-email", {
+      await axios.post(`${baseUrl}/api/send-email`, {
         email,
         prompt: showPrompt,
       });
